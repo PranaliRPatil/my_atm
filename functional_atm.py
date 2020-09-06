@@ -9,8 +9,8 @@ def display_msg(msg, show_input=0):
 
 
 def display_options(opt_list):
-    for lang_idx, lang in enumerate(opt_list, start=1):
-        print(f'{lang_idx}. {lang}')
+    for opt_idx, opt in enumerate(opt_list, start=1):
+        print(f'{opt_idx}. {opt}')
 
 
 print('Welcome to My Bank....!!')
