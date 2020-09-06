@@ -13,7 +13,7 @@ def display_options(opt_list):
         print(f'{opt_idx}. {opt}')
 
 
-print('Welcome to My Bank....!!')
+display_msg('Welcome to My Bank....!!')
 card_insert = display_msg('Press I to insert your Card: ', 1)
 
 if card_insert in ('I', 'i'):
