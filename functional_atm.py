@@ -71,7 +71,7 @@ if card_insert in ('I', 'i'):
                     users[account_pin]['balance'] = float(
                         users[account_pin]['balance']) + amount
                     display_msg(
-                        f'Amount has been tranferred succesfully. Your Total Avl. balance is: $ {amount_remaining}')
+                        f'Amount has been tranferred successfully. Your Total Available balance is: $ {amount_remaining}')
     else:
         display_msg('Please select proper option.')
                     
