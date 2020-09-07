@@ -35,7 +35,8 @@ if card_insert in ('I', 'i'):
         display_msg(
             'Not available now. Sorry for inconvinience. English will be by  default')
 
-    options = ['Withdraw Cash', 'Change PIN', 'Check Balance']
+    options = ['Withdraw Cash', 'Change PIN', 'Check Balance', 
+                'Transfer Amount']
     display_options(options)
     opt_inp = display_msg('What you want to do: ', 1)
     if opt_inp is '3':
@@ -53,7 +54,27 @@ if card_insert in ('I', 'i'):
                     'Dear user, your PIN has been updated successfully..!')
             else:
                 display_msg('Invalid PIN')
-    # else:
+    elif opt_inp is '4':
+        account_num = int(display_msg('Enter Account no. :', 1))
+        account_pin = int(display_msg('Enter PIN :', 1))
+        if account_pin not in users:
+            display_msg('Invalid PIN. Please check again.')
+        else:
+            if account_num != users[account_pin]['account_no']:
+                display_msg('Invalid Account number. Please check again.')
+            else:
+                amount = float(display_msg('Enter Amount to be transfer: ', 1))
+                amount_confirm = display_msg('Press C to confirm: ', 1)
+                if amount_confirm in ('C', 'c'):
+                    amount_remaining = float(users[int(pin_inp)]['balance']) - amount
+                    users[int(pin_inp)]['balance'] = amount_remaining
+                    users[account_pin]['balance'] = float(
+                        users[account_pin]['balance']) + amount
+                    display_msg(
+                        f'Amount has been tranferred succesfully. Your Total Avl. balance is: $ {amount_remaining}')
+    else:
+        display_msg('Please select proper option.')
+                    
 else:
     display_msg('Card is necessary.')
 
